@@ -1,4 +1,5 @@
 const items = window.SALE_ITEMS || [];
+const availableItems = items.filter(item => item.status !== 'sold');
 const config = window.SALE_CONFIG || {};
 const contacts = config.contacts || [];
 const grid = document.querySelector('#item-grid');
@@ -60,7 +61,7 @@ function card(item) {
 }
 
 function renderFilters() {
-  const categories = ['All', ...new Set(items.map(item => item.category))];
+  const categories = ['All', ...new Set(availableItems.map(item => item.category))];
   filters.replaceChildren(...categories.map(category => {
     const button = el('button', 'filter', category);
     button.type = 'button';
@@ -95,7 +96,7 @@ function renderContacts() {
 
 function renderItems() {
   const query = search.value.trim().toLocaleLowerCase();
-  const matching = items.filter(item =>
+  const matching = availableItems.filter(item =>
     (activeCategory === 'All' || item.category === activeCategory) &&
     `${item.title} ${item.category} ${item.condition || ''} ${item.size || ''}`.toLocaleLowerCase().includes(query)
   );
@@ -179,7 +180,7 @@ async function copyInquiry() {
   }
 }
 
-document.querySelector('#total-count').textContent = `${items.length} items to explore`;
+document.querySelector('#total-count').textContent = `${availableItems.length} items to explore`;
 document.querySelector('#clear-filters').addEventListener('click', () => {
   activeCategory = 'All';
   search.value = '';

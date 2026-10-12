@@ -5,6 +5,7 @@ This repository is a static moving sale catalog intended for GitHub Pages. Keep 
 ## Editing rules
 
 - Add, update, or remove products in `window.SALE_ITEMS`. Keep IDs unique and `amount` numeric so price sorting works.
+- Items with `status: 'sold'` stay in the data file but are hidden from the public catalog and item count.
 - Preserve user-provided prices, quantities, measurements, conditions, and URLs. Do not invent availability, contact details, location, or pickup terms.
 - Use relative paths for local images so the site works under a GitHub Pages repository path. Keep images reasonably compressed and avoid publishing original photo metadata.
 - Distinguish supplier photos from photos of the actual item with `supplierPhoto: true`.
