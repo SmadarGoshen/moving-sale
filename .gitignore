@@ -1,0 +1,8 @@
+# Source photos and workbook stay on the local computer. The site uses the
+# smaller, metadata-free copies in assets/images/.
+/Move.xlsx
+/products pictures/
+/contact-sheet.jpg
+.DS_Store
+Thumbs.db
+node_modules/

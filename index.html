@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ed">
+  <meta name="description" content="Browse furniture, homewares, and more from a moving sale. Photos, prices, and details in one place.">
+  <title>The Moving Edit · Furniture & homewares for sale</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data/items.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#items">Skip to items</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="The Moving Edit, back to top"><span class="wordmark__symbol" aria-hidden="true">✳</span> THE MOVING EDIT</a>
+    <nav aria-label="Main navigation"><a href="#items">Explore items <span aria-hidden="true">↗</span></a><a href="#contact">Contact <span aria-hidden="true">↗</span></a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__line"></span> A little moving sale</p>
+        <h1 id="hero-title">Good things,<br><em>new homes.</em></h1>
+        <p class="hero__description">Furniture, homewares, and a few other finds are ready for their next chapter. Have a look around and get in touch about anything you like.</p>
+        <a class="button button--dark" href="#items">Browse the collection <span aria-hidden="true">↗</span></a>
+        <p class="hero__footnote">Individual prices and details below <span aria-hidden="true">↓</span></p>
+      </div>
+      <div class="hero__visual">
+        <img src="assets/images/comodor-livingroom-big-01.jpg" alt="White sideboard in the living room" fetchpriority="high">
+        <div class="hero__stamp" aria-hidden="true"><span>PRE-LOVED<br>AND READY<br>TO GO</span><span class="hero__stamp-star">✳</span></div>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="About the collection">
+      <span>FURNITURE <i>✳</i> HOMEWARES <i>✳</i> A LITTLE BIT OF EVERYTHING</span>
+      <span id="total-count">Browse the collection</span>
+    </section>
+
+    <section class="catalog" id="items" aria-labelledby="catalog-title">
+      <div class="catalog__heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow__line"></span> The collection</p>
+          <h2 id="catalog-title">Find your next <em>favorite.</em></h2>
+        </div>
+        <p>See something you like? Contact Smadar or Lior with the item name.</p>
+      </div>
+
+      <div class="controls">
+        <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+        <div class="controls__right">
+          <label class="search-field"><span class="visually-hidden">Search items</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="search" type="search" placeholder="Search items…" autocomplete="off"></label>
+          <label class="sort-field"><span class="visually-hidden">Sort items</span><select id="sort"><option value="default">Featured order</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A to Z</option></select></label>
+        </div>
+      </div>
+
+      <p id="result-count" class="result-count" aria-live="polite"></p>
+      <div id="item-grid" class="item-grid"></div>
+      <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">✳</span><h3>No items found</h3><p>Try a different search or category.</p><button type="button" id="clear-filters" class="text-button">Show all items ↗</button></div>
+    </section>
+
+    <section class="contact-note" id="contact" aria-labelledby="contact-title">
+      <div class="contact-note__intro">
+        <p class="eyebrow"><span class="eyebrow__line"></span> See something you like?</p>
+        <h2 id="contact-title">Let’s give it a <em>new home.</em></h2>
+        <p>Open an item for more photos and details. When you get in touch, mention the item name so we know which one you mean.</p>
+      </div>
+      <div id="contact-list" class="contact-list" aria-label="Contact numbers"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span class="wordmark"><span class="wordmark__symbol" aria-hidden="true">✳</span> THE MOVING EDIT</span><span>Prices and availability can change. Please confirm before collecting.</span><a href="#top">Back to top ↑</a></footer>
+
+  <dialog id="item-dialog" class="item-dialog" aria-labelledby="dialog-title">
+    <button type="button" class="dialog-close" id="dialog-close" aria-label="Close item details">×</button>
+    <div class="dialog-layout">
+      <div class="dialog-gallery">
+        <div class="dialog-image" id="dialog-image"></div>
+        <div class="gallery-controls" id="gallery-controls"><button type="button" id="gallery-prev" aria-label="Previous photo">←</button><span id="gallery-count"></span><button type="button" id="gallery-next" aria-label="Next photo">→</button></div>
+      </div>
+      <div class="dialog-info">
+        <p class="eyebrow" id="dialog-category"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="dialog-price" id="dialog-price"></p>
+        <dl id="dialog-details"></dl>
+        <p class="supplier-note" id="supplier-note" hidden>Photo from the supplier's product page; the item being sold is in its box.</p>
+        <div class="dialog-actions">
+          <button type="button" id="copy-inquiry" class="button button--dark">Copy inquiry ↗</button>
+          <a id="listing-link" class="button button--outline" target="_blank" rel="noopener noreferrer" hidden>View listing ↗</a>
+        </div>
+        <div id="dialog-contacts" class="dialog-contacts"></div>
+        <a id="reference-link" class="reference-link" target="_blank" rel="noopener noreferrer" hidden>See original product page ↗</a>
+      </div>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

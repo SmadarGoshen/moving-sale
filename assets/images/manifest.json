@@ -1,0 +1,124 @@
+﻿{
+    "Armchairs x 2":  [
+                          "assets/images/armchairs-x-2-01.jpg",
+                          "assets/images/armchairs-x-2-02.jpg",
+                          "assets/images/armchairs-x-2-03.jpg",
+                          "assets/images/armchairs-x-2-04.jpg"
+                      ],
+    "bathroom closet 1":  [
+                              "assets/images/bathroom-closet-1-01.jpg",
+                              "assets/images/bathroom-closet-1-02.jpg",
+                              "assets/images/bathroom-closet-1-03.jpg"
+                          ],
+    "bathroom closet 2":  [
+                              "assets/images/bathroom-closet-2-01.jpg",
+                              "assets/images/bathroom-closet-2-02.jpg",
+                              "assets/images/bathroom-closet-2-03.jpg"
+                          ],
+    "Bed":  [
+                "assets/images/bed-01.jpg",
+                "assets/images/bed-02.jpg",
+                "assets/images/bed-03.jpg",
+                "assets/images/bed-04.jpg"
+            ],
+    "bicycle begs x 2":  [
+                             "assets/images/bicycle-begs-x-2-01.jpg",
+                             "assets/images/bicycle-begs-x-2-02.jpg"
+                         ],
+    "Black chairs x 2":  [
+                             "assets/images/black-chairs-x-2-01.jpg",
+                             "assets/images/black-chairs-x-2-02.jpg",
+                             "assets/images/black-chairs-x-2-03.jpg"
+                         ],
+    "Chairs x 2":  [
+                       "assets/images/chairs-x-2-01.jpg",
+                       "assets/images/chairs-x-2-02.jpg",
+                       "assets/images/chairs-x-2-03.jpg"
+                   ],
+    "Coffee table":  [
+                         "assets/images/coffee-table-01.jpg",
+                         "assets/images/coffee-table-02.jpg",
+                         "assets/images/coffee-table-03.jpg",
+                         "assets/images/coffee-table-04.jpg"
+                     ],
+    "comodor blue":  [
+                         "assets/images/comodor-blue-01.jpg",
+                         "assets/images/comodor-blue-02.jpg",
+                         "assets/images/comodor-blue-03.jpg",
+                         "assets/images/comodor-blue-04.jpg"
+                     ],
+    "comodor livingroom big":  [
+                                   "assets/images/comodor-livingroom-big-01.jpg",
+                                   "assets/images/comodor-livingroom-big-02.jpg",
+                                   "assets/images/comodor-livingroom-big-03.jpg"
+                               ],
+    "comodor white":  [
+                          "assets/images/comodor-white-01.jpg",
+                          "assets/images/comodor-white-02.jpg",
+                          "assets/images/comodor-white-03.jpg"
+                      ],
+    "Cussions x 6":  [
+                         "assets/images/cussions-x-6-01.jpg",
+                         "assets/images/cussions-x-6-02.jpg"
+                     ],
+    "Dining table":  [
+                         "assets/images/dining-table-01.jpg",
+                         "assets/images/dining-table-02.jpg",
+                         "assets/images/dining-table-03.jpg",
+                         "assets/images/dining-table-04.jpg",
+                         "assets/images/dining-table-05.jpg",
+                         "assets/images/dining-table-06.jpg",
+                         "assets/images/dining-table-07.jpg",
+                         "assets/images/dining-table-08.jpg"
+                     ],
+    "food dehydration maschine":  [
+                                      "assets/images/food-dehydration-maschine-01.jpg",
+                                      "assets/images/food-dehydration-maschine-02.jpg",
+                                      "assets/images/food-dehydration-maschine-03.jpg"
+                                  ],
+    "Footstool x 2":  [
+                          "assets/images/footstool-x-2-01.jpg"
+                      ],
+    "Footstoolgreen":  [
+                           "assets/images/footstoolgreen-01.jpg",
+                           "assets/images/footstoolgreen-02.jpg",
+                           "assets/images/footstoolgreen-03.jpg"
+                       ],
+    "Guitar":  [
+                   "assets/images/guitar-01.jpg",
+                   "assets/images/guitar-02.jpg",
+                   "assets/images/guitar-03.jpg",
+                   "assets/images/guitar-04.jpg"
+               ],
+    "Lamp":  [
+                 "assets/images/lamp-01.jpg",
+                 "assets/images/lamp-02.jpg"
+             ],
+    "large closet":  [
+                         "assets/images/large-closet-01.jpg",
+                         "assets/images/large-closet-02.jpg",
+                         "assets/images/large-closet-03.jpg"
+                     ],
+    "Plastic drawers hallway":  [
+                                    "assets/images/plastic-drawers-hallway-01.jpg"
+                                ],
+    "Stepper":  [
+                    "assets/images/stepper-01.jpg",
+                    "assets/images/stepper-02.jpg",
+                    "assets/images/stepper-03.jpg",
+                    "assets/images/stepper-04.jpg"
+                ],
+    "Wooden Shelves_hangers X 3":  [
+                                       "assets/images/wooden-shelves-hangers-x-3-01.jpg",
+                                       "assets/images/wooden-shelves-hangers-x-3-02.jpg",
+                                       "assets/images/wooden-shelves-hangers-x-3-03.jpg",
+                                       "assets/images/wooden-shelves-hangers-x-3-04.jpg"
+                                   ],
+    "Yamaha PSR-E373 Black Keyboard":  [
+                                           "assets/images/yamaha-psr-e373-black-keyboard-01.jpg",
+                                           "assets/images/yamaha-psr-e373-black-keyboard-02.jpg",
+                                           "assets/images/yamaha-psr-e373-black-keyboard-03.jpg",
+                                           "assets/images/yamaha-psr-e373-black-keyboard-04.jpg",
+                                           "assets/images/yamaha-psr-e373-black-keyboard-05.jpg"
+                                       ]
+}
