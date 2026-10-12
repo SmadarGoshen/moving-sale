@@ -7,8 +7,6 @@
   <meta name="description" content="Browse furniture, homewares, and more from a moving sale. Photos, prices, and details in one place.">
   <title>Moving out selling good stuff</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="data/items.js" defer></script>
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#items">Skip to items</a>
@@ -94,5 +92,17 @@
     </div>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    // Use a fresh URL for listing data so status changes show up after a normal reload.
+    const cacheKey = Date.now();
+    const itemScript = document.createElement('script');
+    itemScript.src = `data/items.js?v=${cacheKey}`;
+    itemScript.onload = () => {
+      const appScript = document.createElement('script');
+      appScript.src = `script.js?v=${cacheKey}`;
+      document.head.append(appScript);
+    };
+    document.head.append(itemScript);
+  </script>
 </body>
 </html>

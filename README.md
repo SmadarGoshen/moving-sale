@@ -25,6 +25,8 @@ Put new photos in `assets/images/` and list their relative paths in the item. Ex
 
 The names and phone numbers shown on the page are in `window.SALE_CONFIG.contacts` near the top of `data/items.js`. Each item also offers a **Copy inquiry** button so a visitor can paste a message into a text conversation.
 
+The page requests a fresh copy of `data/items.js` when it loads, so sold-status updates should appear after a normal reload once GitHub Pages has published the new commit. A browser may still briefly cache `index.html` itself after this loader changes; a hard refresh resolves that initial transition.
+
 ## Preview locally
 
 In PowerShell, from this folder, run:
