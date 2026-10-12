@@ -1,5 +1,6 @@
 const items = window.SALE_ITEMS || [];
-const availableItems = items.filter(item => item.status !== 'sold');
+const availableCount = items.filter(item => item.status !== 'sold').length;
+const soldCount = items.length - availableCount;
 const config = window.SALE_CONFIG || {};
 const contacts = config.contacts || [];
 const grid = document.querySelector('#item-grid');
@@ -36,10 +37,11 @@ function addPhoto(container, src, alt, supplier = false) {
 }
 
 function card(item) {
-  const article = el('article', 'item-card');
+  const sold = item.status === 'sold';
+  const article = el('article', sold ? 'item-card item-card--sold' : 'item-card');
   const button = el('button', 'item-card__button');
   button.type = 'button';
-  button.setAttribute('aria-label', `View ${item.title}, ${item.price}`);
+  button.setAttribute('aria-label', sold ? `View ${item.title}, sold` : `View ${item.title}, ${item.price}`);
   button.addEventListener('click', () => openItem(item, button));
   const visual = el('div', 'item-card__visual');
   if (item.images?.length) {
@@ -49,6 +51,7 @@ function card(item) {
   } else {
     placeholder(visual);
   }
+  if (sold) visual.append(el('span', 'sold-tag', 'SOLD'));
   const body = el('div', 'item-card__body');
   body.append(el('p', 'item-card__category', item.category));
   const titleRow = el('div', 'item-card__title-row');
@@ -61,7 +64,7 @@ function card(item) {
 }
 
 function renderFilters() {
-  const categories = ['All', ...new Set(availableItems.map(item => item.category))];
+  const categories = ['All', ...new Set(items.map(item => item.category))];
   filters.replaceChildren(...categories.map(category => {
     const button = el('button', 'filter', category);
     button.type = 'button';
@@ -96,13 +99,14 @@ function renderContacts() {
 
 function renderItems() {
   const query = search.value.trim().toLocaleLowerCase();
-  const matching = availableItems.filter(item =>
+  const matching = items.filter(item =>
     (activeCategory === 'All' || item.category === activeCategory) &&
     `${item.title} ${item.category} ${item.condition || ''} ${item.size || ''}`.toLocaleLowerCase().includes(query)
   );
   if (sort.value === 'price-low') matching.sort((a, b) => a.amount - b.amount);
   if (sort.value === 'price-high') matching.sort((a, b) => b.amount - a.amount);
   if (sort.value === 'name') matching.sort((a, b) => a.title.localeCompare(b.title));
+  matching.sort((a, b) => Number(a.status === 'sold') - Number(b.status === 'sold'));
   grid.replaceChildren(...matching.map(card));
   document.querySelector('#result-count').textContent = `${matching.length} ${matching.length === 1 ? 'item' : 'items'} shown`;
   document.querySelector('#empty-state').hidden = matching.length !== 0;
@@ -130,18 +134,23 @@ function openItem(item, button) {
   returnFocus = button;
   document.querySelector('#dialog-category').textContent = item.category;
   document.querySelector('#dialog-title').textContent = item.title;
-  document.querySelector('#dialog-price').textContent = item.price;
+  const sold = item.status === 'sold';
+  const price = document.querySelector('#dialog-price');
+  price.replaceChildren(el('span', sold ? 'sold-price' : '', item.price));
+  if (sold) price.append(el('span', 'dialog-sold-tag', 'SOLD'));
   const details = document.querySelector('#dialog-details');
   details.replaceChildren();
   if (item.size) addDetail(details, 'Measurements', item.size);
   if (item.condition) addDetail(details, 'Condition', item.condition);
   document.querySelector('#supplier-note').hidden = !item.supplierPhoto;
   const listing = document.querySelector('#listing-link');
-  listing.hidden = !item.listing;
+  listing.hidden = sold || !item.listing;
   if (item.listing) listing.href = item.listing;
   const reference = document.querySelector('#reference-link');
   reference.hidden = !item.reference;
   if (item.reference) reference.href = item.reference;
+  document.querySelector('#copy-inquiry').hidden = sold;
+  document.querySelector('#dialog-contacts').hidden = sold;
   showPhoto();
   dialog.showModal();
 }
@@ -180,7 +189,9 @@ async function copyInquiry() {
   }
 }
 
-document.querySelector('#total-count').textContent = `${availableItems.length} items to explore`;
+document.querySelector('#total-count').textContent = soldCount
+  ? `${availableCount} available · ${soldCount} sold`
+  : `${availableCount} items to explore`;
 document.querySelector('#clear-filters').addEventListener('click', () => {
   activeCategory = 'All';
   search.value = '';

@@ -1,4 +1,4 @@
-# The Moving Edit
+# Moving out selling good stuff
 
 A small, build-free moving sale catalog for GitHub Pages. The site is plain HTML, CSS, and JavaScript, so there is no package install or build step.
 
@@ -19,7 +19,7 @@ Open [`data/items.js`](data/items.js). Each object in `window.SALE_ITEMS` is one
 },
 ```
 
-`price` is the text shown to visitors; `amount` is the number used for price sorting. `size`, `condition`, `reference` (original product page), and `listing` (a sale listing) are optional. Add `status: 'sold'` to keep an item in the data file while hiding it from the public catalog. Use `images: []` when there is no photo. `sourceRow` records the original row in the `SellGive` sheet and can be omitted for new items.
+`price` is the text shown to visitors; `amount` is the number used for price sorting. `size`, `condition`, `reference` (original product page), and `listing` (a sale listing) are optional. Add `status: 'sold'` inside an item's `{ ... }` entry to keep it visible with a SOLD label. The food dehydrator entry is an example. Remove the `status` property if the item is available again. Use `images: []` when there is no photo. `sourceRow` records the original row in the `SellGive` sheet and can be omitted for new items.
 
 Put new photos in `assets/images/` and list their relative paths in the item. Existing local photos were resized by [`tools/prepare-images.ps1`](tools/prepare-images.ps1); if you still have the original `products pictures/` folder, you can run that script again in PowerShell. It also writes `assets/images/manifest.json` to help find the generated names. The four motor photos were downloaded from their linked supplier product pages and are marked as supplier photos.
 

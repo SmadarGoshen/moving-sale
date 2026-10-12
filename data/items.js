@@ -1,12 +1,14 @@
 // Edit this array to add, remove, or update listings. See README.md for examples.
 // Photo paths are relative to index.html. Empty images arrays use a styled placeholder.
+// To mark an item as sold, add status: 'sold' inside its { ... } entry below.
+// Sold items stay visible with a SOLD label. Remove that property if the item is available again.
 const localPhotos = (name, count) => Array.from(
   { length: count },
   (_, index) => `assets/images/${name}-${String(index + 1).padStart(2, '0')}.jpg`
 );
 
 window.SALE_CONFIG = {
-  title: 'The Moving Edit',
+  title: 'Moving out selling good stuff',
   contacts: [
     { name: 'Smadar', phone: '+49 176 32853378' },
     { name: 'Lior', phone: '+49 176 32527182' }
@@ -36,6 +38,7 @@ window.SALE_ITEMS = [
   { id: 'bike-bags', title: 'Vaude bicycle bags · 2', category: 'Other', price: '€110 each / €200 both', amount: 110, condition: 'Never used, in box', images: localPhotos('bicycle-begs-x-2', 2), reference: 'https://www.deporvillage.de/dreifach-radtasche-vaude-karakorum-schwarzgrau', listing: 'https://www.kleinanzeigen.de/s-anzeige/vaude-karakorum-bicycle-pannier-bags-new-unused/3539347751-230-9290', sourceRow: 31 },
   { id: 'keyboard', title: 'Yamaha PSR-E373 keyboard', category: 'Other', price: '€100', amount: 100, condition: 'Good shape', images: localPhotos('yamaha-psr-e373-black-keyboard', 5), reference: 'https://www.amazon.de/-/en/dp/B08HN8K8PY?th=1', listing: 'https://www.kleinanzeigen.de/s-anzeige/yamaha-psr-e373-black-keyboard-portable-digital-keyboard-for-be/3539133949-74-9290', sourceRow: 36 },
   { id: 'guitar', title: 'Classical guitar', category: 'Other', price: '€80', amount: 80, condition: 'Good shape, hardly used', images: localPhotos('guitar', 4), reference: 'https://www.amazon.de/-/en/Ortega-Cedar-Mahogany-Classical-Guitar/dp/B00VGDPGDG', listing: 'https://www.kleinanzeigen.de/s-anzeige/mahogany-classical-guitar/3539129519-74-9290', sourceRow: 37 },
+  // Example: this item remains on the page because its entry has status: 'sold'.
   { id: 'dehydrator', title: 'Food dehydrator', category: 'Other', price: '€30 VB', amount: 30, condition: 'Good shape, hardly used', images: localPhotos('food-dehydration-maschine', 3), listing: 'https://www.kleinanzeigen.de/s-anzeige/food-dehydrator-5-trays-stainless-steel-racks-touch-display-bp/3539150790-86-9290', status: 'sold', sourceRow: 38 },
   { id: 'motor-nema17', title: 'NEMA 17 stepper motor · 26 Ncm', category: 'Other', price: '€5', amount: 5, condition: 'Never used, in box', images: ['assets/images/motor-nema17.jpg'], reference: 'https://www.omc-stepperonline.com/nema-17-bipolar-1-8deg-26ncm-36-8oz-in-0-4a-12v-42x42x34mm-4-wires-17hs13-0404s1', listing: 'https://www.kleinanzeigen.de/s-anzeige/nema-17-stepper-motor-17hs13-0404s1-new-unused/3539361269-168-9290', supplierPhoto: true, sourceRow: 32 },
   { id: 'motor-nema17-geared', title: 'NEMA 17 geared stepper motor · 5:1', category: 'Other', price: '€20', amount: 20, condition: 'Never used, in box', images: ['assets/images/motor-nema17-geared.jpg'], reference: 'https://www.omc-stepperonline.com/nema-17-stepper-motor-bipolar-l-33mm-w-gear-ratio-5-1-planetary-gearbox-17hs13-0404s-pg5', listing: 'https://www.kleinanzeigen.de/s-anzeige/nema-17-stepper-motor-with-5-1-planetary-gearbox-new-unused/3539364820-168-9290', supplierPhoto: true, sourceRow: 33 },
